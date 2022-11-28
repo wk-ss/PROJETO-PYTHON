@@ -1,0 +1,33 @@
+#Funçao de Cifra de Cesar
+def encriptar(texto, chave):
+    base = 'abcdefghijklmnopqrstuvwxyz'
+    texto = texto.lower()
+    cripto = ''
+    for word in texto:
+        posicicao = base.find(word)
+        posicicao += chave
+        if(posicicao > len(base)):
+            posicicao = posicicao - len(base)
+        cripto = cripto + base[posicicao]
+    return cripto
+
+def decriptar(texto, chave):
+    base = 'abcdefghijklmnopqrstuvwxyz'
+    texto = texto.lower()
+    cripto = ''
+    for word in texto:
+
+        posicicao = base.find(word)
+
+        posicicao -= chave
+
+        if posicicao < 0:
+
+            posicicao = len(base) - abs(posicicao)
+
+
+        cripto = cripto + base[posicicao]
+    return cripto
+#exemplo:.
+#encriptar("acacs",2)
+#decriptar("ceceu",2)
